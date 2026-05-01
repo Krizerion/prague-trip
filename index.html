@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Прага 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Прага 2026 | Пълен План</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0f172a;
             --card: #1e293b;
             --accent: #fbbf24;
             --text: #f1f5f9;
-            --secondary: #818cf8;
+            --secondary: #94a3b8;
+            --highlight: #38bdf8;
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * { box-sizing: border-box; }
@@ -21,112 +23,121 @@
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
+            padding: 10px;
+            line-height: 1.5;
         }
 
         .container {
             width: 100%;
-            max-width: 450px;
+            max-width: 480px;
+            margin: 0 auto;
         }
 
         header {
             text-align: center;
-            padding: 20px 0 30px;
+            padding: 40px 0 20px;
         }
 
-        h1 { margin: 0; font-weight: 900; font-size: 2.2rem; color: var(--accent); }
-        .crew { font-size: 0.9rem; opacity: 0.8; margin-top: 10px; }
+        h1 { margin: 0; font-weight: 800; font-size: 1.8rem; color: var(--accent); letter-spacing: 1px; }
+        .crew { font-size: 1rem; opacity: 0.9; margin-top: 10px; font-weight: 600; }
 
         .card {
             background: var(--card);
-            border-radius: 20px;
+            border-radius: 15px;
             padding: 20px;
             margin-bottom: 20px;
             border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
         }
 
         h2 { 
             color: var(--accent); 
-            margin: 0 0 20px 0; 
+            margin: 0 0 15px 0; 
             font-size: 1.2rem; 
-            display: flex; 
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        /* КОРИГИРАНО ПОДРАВНЯВАНЕ ЗА ЗАДАЧИТЕ */
+        /* ЗАДАЧИ */
         .todo-item {
             display: flex;
             align-items: flex-start;
             gap: 15px;
             margin-bottom: 15px;
-            padding: 15px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
+            padding: 12px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
         }
 
         .todo-item input[type="checkbox"] {
             min-width: 22px;
             min-height: 22px;
-            margin-top: 3px;
+            margin-top: 2px;
             accent-color: var(--accent);
-            cursor: pointer;
         }
 
-        .todo-content {
-            flex: 1;
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .todo-content b { display: block; color: var(--highlight); margin-bottom: 4px; }
+        .todo-content p { margin: 0; font-size: 0.85rem; opacity: 0.9; }
+
+        /* ГРАФИК */
+        .day-label {
+            display: inline-block;
+            background: var(--highlight);
+            color: var(--bg);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
-        .todo-content b {
-            display: block;
-            color: var(--accent);
-            margin-bottom: 4px;
-            font-size: 1rem;
-        }
-
-        /* ПРОГРАМА */
         .schedule-row {
             display: flex;
             gap: 15px;
             padding: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid var(--border);
         }
 
         .schedule-row:last-child { border: none; }
 
         .time {
-            min-width: 60px;
+            min-width: 50px;
             font-weight: 700;
-            color: var(--secondary);
-            font-size: 0.9rem;
-        }
-
-        .event-info b {
-            display: block;
-            font-size: 1rem;
-            margin-bottom: 4px;
-        }
-
-        .event-info p {
-            margin: 0;
+            color: var(--highlight);
             font-size: 0.85rem;
-            opacity: 0.7;
         }
 
-        ul { padding-left: 20px; margin: 0; }
-        li { margin-bottom: 10px; font-size: 0.9rem; line-height: 1.4; }
+        .event-info b { display: block; font-size: 0.95rem; margin-bottom: 5px; color: #fff; }
+        .event-info p { margin: 0; font-size: 0.85rem; opacity: 0.85; }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 0.8rem;
-            opacity: 0.5;
+        /* СПИСЪЦИ ЗА ПРЕПОРЪКИ */
+        .recommendation-list {
+            padding: 0;
+            list-style: none;
+            margin: 0;
         }
+
+        .recommendation-list li {
+            padding: 12px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            border-left: 3px solid var(--highlight);
+        }
+
+        .recommendation-list li b { color: var(--accent); display: block; margin-bottom: 3px; }
+
+        .hotel-box {
+            border: 1px solid var(--highlight);
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; opacity: 0.5; }
     </style>
 </head>
 <body>
@@ -137,102 +148,159 @@
             <div class="crew">Крис • Камен • Хриси • Сашо</div>
         </header>
 
+        <!-- ЛОГИСТИКА -->
         <div class="card">
-            <h2>📍 Задачи при кацане</h2>
-            
+            <h2>📍 Насоки при пристигане</h2>
             <div class="todo-item">
                 <input type="checkbox">
                 <div class="todo-content">
-                    <b>Пари (Крони)</b>
-                    Теглене от банкомат с Revolut. Важно: Изберете "Without Conversion", за да избегнете високите такси на банките.
+                    <b>Валута (Чешки крони)</b>
+                    <p>Препоръчително е теглене от банкомат с Revolut. Изберете "Without Conversion", за да ползвате борсовия курс.</p>
                 </div>
             </div>
-
             <div class="todo-item">
                 <input type="checkbox">
                 <div class="todo-content">
-                    <b>Транспорт</b>
-                    Купуване на 72-часови карти от автоматите на летището или приложението PID Lítačka.
-                </div>
-            </div>
-
-            <div class="todo-item">
-                <input type="checkbox">
-                <div class="todo-content">
-                    <b>Логистика</b>
-                    Хващаме автобус 119 до метростанция Nádraží Veleslavín (Зелена линия А).
+                    <b>Карти за транспорт</b>
+                    <p>Вземете 72-часови карти (валидни за метро, трамвай и автобус) от автоматите на летището.</p>
                 </div>
             </div>
         </div>
 
+        <!-- ХОТЕЛ -->
+        <div class="card hotel-box">
+            <h2>🏨 Нашият Хотел</h2>
+            <div class="todo-content">
+                <b style="color: #fff;">Luxury Family Hotel Royal Palace</b>
+                <p style="margin: 8px 0;">Хотелът се намира до метростанция <b>Malostranská</b></p>
+                <p style="font-size: 0.8rem; border-top: 1px solid var(--border); padding-top: 8px;">
+                    <b>Маршрут:</b> Автобус 119 до последна спирка (Nádraží Veleslavín) → Метро Линия А (Зелена) до станция Malostranská.
+                </p>
+            </div>
+        </div>
+
+        <!-- ПЕТЪК -->
         <div class="card">
-            <h2>📅 19 Юни (Петък)</h2>
+            <span class="day-label">19 Юни • Петък</span>
             <div class="schedule-row">
                 <div class="time">15:30</div>
                 <div class="event-info">
-                    <b>Кацане</b>
-                    Летище Вацлав Хавел.
+                    <b>Кацане и настаняване</b>
+                    <p>Придвижване към хотел Royal Palace и освежаване след полета.</p>
                 </div>
             </div>
             <div class="schedule-row">
-                <div class="time">19:00</div>
+                <div class="time">18:30</div>
                 <div class="event-info">
-                    <b>Старият град</b>
-                    Часовникът и площада.
+                    <b>Разходка в Стария град</b>
+                    <p>Посещение на Стария градски площад и Астрономическия часовник. Районът е изключително красив вечер.</p>
+                </div>
+            </div>
+            <div class="schedule-row">
+                <div class="time">20:30</div>
+                <div class="event-info">
+                    <b>Традиционна вечеря</b>
+                    <p>Първа среща с чешката кухня – подходящо време за опитване на местни специалитети.</p>
                 </div>
             </div>
         </div>
 
+        <!-- СЪБОТА -->
         <div class="card">
-            <h2>📅 20 Юни (Събота)</h2>
+            <span class="day-label">20 Юни • Събота</span>
             <div class="schedule-row">
                 <div class="time">10:00</div>
                 <div class="event-info">
                     <b>Карловият мост</b>
-                    Разходка и снимки.
+                    <p>Един от символите на Европа. Сутринта е най-приятното време за пресичане в посока Храдчани.</p>
+                </div>
+            </div>
+            <div class="schedule-row">
+                <div class="time">12:30</div>
+                <div class="event-info">
+                    <b>Пражкият замък и Св. Вит</b>
+                    <p>Разглеждане на катедралата и комплекса на замъка. Това е най-големият древен замък в света.</p>
+                </div>
+            </div>
+            <div class="schedule-row">
+                <div class="time">16:00</div>
+                <div class="event-info">
+                    <b>Мала Страна и Стената на Ленън</b>
+                    <p>Живописен квартал с барокова архитектура, точно под замъка и в близост до нашия хотел.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- НЕДЕЛЯ -->
+        <div class="card">
+            <span class="day-label">21 Юни • Неделя</span>
+            <div class="schedule-row">
+                <div class="time">10:00</div>
+                <div class="event-info">
+                    <b>Хълмът Петрин</b>
+                    <p>Изкачване с фуникуляра (включен в транспортната карта). Гледките към Прага оттук са панорамни и вдъхновяващи.</p>
                 </div>
             </div>
             <div class="schedule-row">
                 <div class="time">13:00</div>
                 <div class="event-info">
-                    <b>Пражкият замък</b>
-                    Катедралата и Златната уличка.
+                    <b>Страховски манастир и библиотека</b>
+                    <p>Намира се близо до Петрин. Библиотеката е обявена за една от най-красивите исторически зали в света.</p>
+                </div>
+            </div>
+            <div class="schedule-row">
+                <div class="time">15:30</div>
+                <div class="event-info">
+                    <b>Речен круиз по Вълтава</b>
+                    <p>Едночасова разходка с корабче. Позволява да се разгледа архитектурата на града от различен и спокоен ъгъл.</p>
+                </div>
+            </div>
+            <div class="schedule-row">
+                <div class="time">18:00</div>
+                <div class="event-info">
+                    <b>Танцуващата къща и Крайбрежната</b>
+                    <p>Разходка по брега на реката до модерната сграда на Франк Гери, след което вечеря в района.</p>
                 </div>
             </div>
         </div>
 
-        <div class="card" style="border-left: 4px solid #ef4444;">
-            <h2>🔥 Задължително</h2>
-            <ul>
-                <li>Астрономическият часовник (на всеки кръгъл час)</li>
-                <li>Трделник с пълнеж</li>
-                <li>Стената на Джон Ленън</li>
-                <li>Бира в историческа кръчма</li>
-            </ul>
-        </div>
-
-        <div class="card" style="border-left: 4px solid #10b981;">
-            <h2>⏳ Ако остане време</h2>
-            <ul>
-                <li>Хълмът Петрин и кулата</li>
-                <li>Танцуващата къща</li>
-                <li>Вишехрад за залез</li>
-            </ul>
-        </div>
-
+        <!-- ПРЕПОРЪКИ -->
         <div class="card">
-            <h2>🛫 22 Юни (Понеделник)</h2>
+            <h2>⭐ Задължителни преживявания</h2>
+            <ul class="recommendation-list">
+                <li>
+                    <b>Трделник (Trdelník)</b>
+                    Традиционно сладко печиво с канела и орехи, което се приготвя на открит огън по улиците.
+                </li>
+                <li>
+                    <b>Златната уличка</b>
+                    Разположена в комплекса на замъка, тя предлага поглед към бита на занаятчиите от миналите векове.
+                </li>
+                <li>
+                    <b>Кварталът Йозефов</b>
+                    Еврейският квартал на Прага, известен с богатата си история и изключително запазена архитектура.
+                </li>
+                <li>
+                    <b>Вишехрад (Vyšehrad)</b>
+                    По-спокойна алтернатива на замъка с красив парк и прекрасна гледка към залязващото слънце над реката.
+                </li>
+            </ul>
+        </div>
+
+        <!-- ПОНЕДЕЛНИК -->
+        <div class="card">
+            <span class="day-label">22 Юни • Понеделник</span>
             <div class="schedule-row">
-                <div class="time">07:00</div>
+                <div class="time">06:45</div>
                 <div class="event-info">
-                    <b>Към летището</b>
-                    Полетът е в 09:00.
+                    <b>Тръгване към летището</b>
+                    <p>Придвижване с метро и автобус 119. Полетът е в 09:00 ч., затова трябва да сме на летището навреме.</p>
                 </div>
             </div>
         </div>
 
         <footer>
-            Приятно прекарване! 🇨🇿
+            Лек път и приятно прекарване на всички! 🇨🇿
         </footer>
     </div>
 
