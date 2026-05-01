@@ -2,149 +2,128 @@
 <html lang="bg">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Прага 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0f172a;
             --card: #1e293b;
             --accent: #fbbf24;
-            --text: #f8fafc;
+            --text: #f1f5f9;
             --secondary: #818cf8;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
-            padding: 10px;
-            -webkit-font-smoothing: antialiased;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
         }
 
         .container {
-            max-width: 500px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 450px;
         }
 
         header {
             text-align: center;
-            padding: 30px 10px;
-            margin-bottom: 20px;
+            padding: 20px 0 30px;
         }
 
-        h1 { 
-            margin: 0; 
-            font-weight: 800; 
-            font-size: 2rem; 
-            color: var(--accent);
-            letter-spacing: 1px;
-        }
-
-        .crew { 
-            font-size: 0.9rem; 
-            opacity: 0.8; 
-            margin-top: 8px; 
-            font-weight: 400;
-        }
+        h1 { margin: 0; font-weight: 900; font-size: 2.2rem; color: var(--accent); }
+        .crew { font-size: 0.9rem; opacity: 0.8; margin-top: 10px; }
 
         .card {
             background: var(--card);
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
             border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
 
         h2 { 
             color: var(--accent); 
-            margin: 0 0 15px 0; 
-            font-size: 1.1rem; 
+            margin: 0 0 20px 0; 
+            font-size: 1.2rem; 
             display: flex; 
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
-        /* Оптимизиран списък със задачи */
-        .todo-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
+        /* КОРИГИРАНО ПОДРАВНЯВАНЕ ЗА ЗАДАЧИТЕ */
         .todo-item {
-            display: grid;
-            grid-template-columns: 30px 1fr;
-            align-items: start;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
             background: rgba(255,255,255,0.03);
-            padding: 12px;
             border-radius: 12px;
         }
 
-        .todo-item input {
-            width: 20px;
-            height: 20px;
-            margin-top: 2px;
+        .todo-item input[type="checkbox"] {
+            min-width: 22px;
+            min-height: 22px;
+            margin-top: 3px;
             accent-color: var(--accent);
+            cursor: pointer;
         }
 
-        .todo-text {
-            font-size: 0.9rem;
-            line-height: 1.4;
+        .todo-content {
+            flex: 1;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        .todo-text b {
-            color: var(--accent);
+        .todo-content b {
             display: block;
-            margin-bottom: 2px;
+            color: var(--accent);
+            margin-bottom: 4px;
+            font-size: 1rem;
         }
 
-        /* Програма по часове */
-        .schedule-item {
+        /* ПРОГРАМА */
+        .schedule-row {
             display: flex;
             gap: 15px;
-            padding: 12px 0;
+            padding: 15px 0;
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .schedule-item:last-child { border: none; }
+        .schedule-row:last-child { border: none; }
 
         .time {
+            min-width: 60px;
             font-weight: 700;
             color: var(--secondary);
             font-size: 0.9rem;
-            min-width: 50px;
         }
 
-        .details b {
+        .event-info b {
             display: block;
-            font-size: 0.95rem;
-            color: #fff;
-            margin-bottom: 2px;
+            font-size: 1rem;
+            margin-bottom: 4px;
         }
 
-        .details p {
+        .event-info p {
             margin: 0;
             font-size: 0.85rem;
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
-        ul { 
-            padding-left: 18px; 
-            margin: 0;
-        }
-
-        li { 
-            font-size: 0.9rem; 
-            margin-bottom: 8px; 
-            line-height: 1.4;
-        }
+        ul { padding-left: 20px; margin: 0; }
+        li { margin-bottom: 10px; font-size: 0.9rem; line-height: 1.4; }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             font-size: 0.8rem;
             opacity: 0.5;
         }
@@ -158,103 +137,102 @@
             <div class="crew">Крис • Камен • Хриси • Сашо</div>
         </header>
 
-        <!-- ЗАДАЧИ -->
         <div class="card">
             <h2>📍 Задачи при кацане</h2>
-            <div class="todo-list">
-                <div class="todo-item">
-                    <input type="checkbox">
-                    <div class="todo-text">
-                        <b>Пари (Крони)</b>
-                        Теглене от банкомат с Revolut. Изберете "Without Conversion", за да избегнете лош курс.
-                    </div>
+            
+            <div class="todo-item">
+                <input type="checkbox">
+                <div class="todo-content">
+                    <b>Пари (Крони)</b>
+                    Теглене от банкомат с Revolut. Важно: Изберете "Without Conversion", за да избегнете високите такси на банките.
                 </div>
-                <div class="todo-item">
-                    <input type="checkbox">
-                    <div class="todo-text">
-                        <b>Транспорт</b>
-                        Купуване на 72-часови карти от автоматите на летището или приложението PID Lítačka.
-                    </div>
+            </div>
+
+            <div class="todo-item">
+                <input type="checkbox">
+                <div class="todo-content">
+                    <b>Транспорт</b>
+                    Купуване на 72-часови карти от автоматите на летището или приложението PID Lítačka.
                 </div>
-                <div class="todo-item">
-                    <input type="checkbox">
-                    <div class="todo-text">
-                        <b>Придвижване</b>
-                        Автобус 119 до метростанция Nádraží Veleslavín (Зелена линия А).
-                    </div>
+            </div>
+
+            <div class="todo-item">
+                <input type="checkbox">
+                <div class="todo-content">
+                    <b>Логистика</b>
+                    Хващаме автобус 119 до метростанция Nádraží Veleslavín (Зелена линия А).
                 </div>
             </div>
         </div>
 
-        <!-- ПРОГРАМА -->
         <div class="card">
             <h2>📅 19 Юни (Петък)</h2>
-            <div class="schedule-item">
+            <div class="schedule-row">
                 <div class="time">15:30</div>
-                <div class="details">
+                <div class="event-info">
                     <b>Кацане</b>
-                    Пристигане на летище Вацлав Хавел.
+                    Летище Вацлав Хавел.
                 </div>
             </div>
-            <div class="schedule-item">
-                <div class="time">18:30</div>
-                <div class="details">
+            <div class="schedule-row">
+                <div class="time">19:00</div>
+                <div class="event-info">
                     <b>Старият град</b>
-                    Астрономическият часовник и площада.
+                    Часовникът и площада.
                 </div>
             </div>
         </div>
 
         <div class="card">
             <h2>📅 20 Юни (Събота)</h2>
-            <div class="schedule-item">
-                <div class="time">09:30</div>
-                <div class="details">
+            <div class="schedule-row">
+                <div class="time">10:00</div>
+                <div class="event-info">
                     <b>Карловият мост</b>
-                    Разходка преди големите тълпи.
+                    Разходка и снимки.
                 </div>
             </div>
-            <div class="schedule-item">
-                <div class="time">11:30</div>
-                <div class="details">
+            <div class="schedule-row">
+                <div class="time">13:00</div>
+                <div class="event-info">
                     <b>Пражкият замък</b>
-                    Катедралата Свети Вит и Златната уличка.
+                    Катедралата и Златната уличка.
                 </div>
             </div>
         </div>
 
-        <div class="card">
-            <h2>⭐ Задължителни места</h2>
+        <div class="card" style="border-left: 4px solid #ef4444;">
+            <h2>🔥 Задължително</h2>
             <ul>
-                <li><b>Астрономическият часовник</b> - на всеки кръгъл час.</li>
-                <li><b>Карловият мост</b> - статуята на Св. Ян Непомуцки.</li>
-                <li><b>Трделник</b> - класическият десерт.</li>
-                <li><b>Мала Страна</b> - стената на Джон Ленън.</li>
+                <li>Астрономическият часовник (на всеки кръгъл час)</li>
+                <li>Трделник с пълнеж</li>
+                <li>Стената на Джон Ленън</li>
+                <li>Бира в историческа кръчма</li>
             </ul>
         </div>
 
-        <div class="card" style="border-left-color: #10b981;">
+        <div class="card" style="border-left: 4px solid #10b981;">
             <h2>⏳ Ако остане време</h2>
             <ul>
-                <li><b>Вишехрад</b> - парк и гледка към реката.</li>
-                <li><b>Танцуващата къща</b> - модерна архитектура.</li>
-                <li><b>Библиотеката Клементинум</b> - бароков стил.</li>
+                <li>Хълмът Петрин и кулата</li>
+                <li>Танцуващата къща</li>
+                <li>Вишехрад за залез</li>
             </ul>
         </div>
 
         <div class="card">
             <h2>🛫 22 Юни (Понеделник)</h2>
-            <div class="schedule-item">
+            <div class="schedule-row">
                 <div class="time">07:00</div>
-                <div class="details">
+                <div class="event-info">
                     <b>Към летището</b>
-                    Тръгване за полет в 09:00.
+                    Полетът е в 09:00.
                 </div>
             </div>
         </div>
 
         <footer>
-            Приятно пътуване, банда! 🇨🇿
+            Приятно прекарване! 🇨🇿
         </footer>
     </div>
 
