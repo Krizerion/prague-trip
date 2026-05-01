@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прага 2026 | План на пътуването</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0e14;
+            --card: rgba(23, 28, 41, 0.8);
+            --accent: #f59e0b; 
+            --text: #e2e8f0;
+            --secondary: #6366f1;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at top, #1e293b 0%, #0b0e14 100%);
+            color: var(--text);
+            margin: 0;
+            padding: 15px;
+            line-height: 1.5;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        h1 { margin: 0; font-weight: 900; font-size: 2.8rem; letter-spacing: 2px; color: var(--accent); }
+        .crew { font-size: 1.1rem; opacity: 0.9; margin-top: 10px; font-weight: 400; color: #fff; }
+
+        .card {
+            background: var(--card);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h2 { color: var(--accent); margin-top: 0; font-size: 1.4rem; display: flex; align-items: center; }
+        
+        .todo-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+        }
+
+        .todo-item input { margin-right: 15px; transform: scale(1.3); accent-color: var(--accent); }
+
+        .schedule-row {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .time { min-width: 75px; font-weight: 700; color: var(--secondary); }
+        .event { flex: 1; }
+        .event strong { display: block; color: #fff; margin-bottom: 3px; }
+
+        .must-visit { border-left-color: #ef4444; }
+        .extra { border-left-color: #10b981; }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+
+        footer { text-align: center; padding: 40px; font-size: 0.9rem; opacity: 0.6; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>ПРАГА 2026</h1>
+            <p class="crew">Крис • Камен • Хриси • Сашо</p>
+            <p>📅 19 – 22 Юни</p>
+        </header>
+
+        <!-- ПЪРВИ СТЪПКИ -->
+        <div class="card">
+            <h2>📍 Задачи при кацане</h2>
+            <div class="todo-item"><input type="checkbox"> <strong>Пари (Крони):</strong> Теглене от банкомат с Revolut. Важно: Изберете "Без преобразуване" (Without Conversion), за да не ви прецака курсът на банката.</div>
+            <div class="todo-item"><input type="checkbox"> <strong>Транспорт:</strong> Купуване на 72-часови карти за целия градски транспорт (от автоматите на летището или през мобилното приложение PID Lítačka).</div>
+            <div class="todo-item"><input type="checkbox"> <strong>Логистика:</strong> Хващаме автобус 119 до метростанция Nádraží Veleslavín (Зелена линия А) към центъра.</div>
+        </div>
+
+        <!-- ПРОГРАМА ПО ДНИ -->
+        <div class="card">
+            <h2>📅 19 Юни (Петък) - Добре дошли</h2>
+            <div class="schedule-row">
+                <div class="time">15:30</div>
+                <div class="event"><strong>Кацане на летище Вацлав Хавел</strong> Преминаване през проверки и придвижване към настаняването.</div>
+            </div>
+            <div class="schedule-row">
+                <div class="time">18:30</div>
+                <div class="event"><strong>Старият град</strong> Разходка из площада, Астрономическият часовник и първи кадри на града.</div>
+            </div>
+            <div class="schedule-row">
+                <div class="time">20:30</div>
+                <div class="event"><strong>Вечеря и бира</strong> Първа официална чешка вечеря с гулаш и местно пиво.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📅 20 Юни (Събота) - Класическа Прага</h2>
+            <div class="schedule-row">
+                <div class="time">09:30</div>
+                <div class="event"><strong>Карловият мост</strong> Пресичане на моста, докато тълпите още не са огромни.</div>
+            </div>
+            <div class="schedule-row">
+                <div class="time">11:30</div>
+                <div class="event"><strong>Пражкият замък</strong> Посещение на Катедралата Свети Вит, Златната уличка и кралските градини.</div>
+            </div>
+            <div class="schedule-row">
+                <div class="time">16:00</div>
+                <div class="event"><strong>Мала Страна</strong> Стената на Джон Ленън и почивка в някое уютно кафене.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📅 21 Юни (Неделя) - Гледки отвисоко</h2>
+            <div class="schedule-row">
+                <div class="time">10:30</div>
+                <div class="event"><strong>Хълмът Петрин</strong> Качване с релсовия лифт (фуникуляр) до кулата, която прилича на Айфеловата.</div>
+            </div>
+            <div class="schedule-row">
+                <div class="time">14:00</div>
+                <div class="event"><strong>Река Вълтава</strong> Разходка по крайбрежната или наемане на водно колело тип "лебед".</div>
+            </div>
+            <div class="schedule-row">
+                <div class="time">19:00</div>
+                <div class="event"><strong>Прощална вечер</strong> Посещение на някоя историческа бирария като "U Fleků".</div>
+            </div>
+        </div>
+
+        <!-- MUST HAVE МЕСТА -->
+        <div class="card must-visit">
+            <h2>🔥 Задължителни места (Must Visit)</h2>
+            <ul>
+                <li><strong>Астрономическият часовник:</strong> Да видим движението на фигурите на всеки кръгъл час.</li>
+                <li><strong>Карловият мост:</strong> Да намерим статуята със звездите и да си пожелаем нещо.</li>
+                <li><strong>Катедралата Свети Вит:</strong> Най-голямата и важна катедрала в страната.</li>
+                <li><strong>Трделник:</strong> Да пробваме класическия десерт с канела и захар.</li>
+            </ul>
+        </div>
+
+        <!-- АКО ОСТАНЕ ВРЕМЕ -->
+        <div class="card extra">
+            <h2>⏳ Ако остане време</h2>
+            <ul>
+                <li><strong>Вишехрад:</strong> Стара крепост с невероятен парк и гледка към реката.</li>
+                <li><strong>Танцуващата къща:</strong> Една от най-известните модерни сгради в света.</li>
+                <li><strong>Библиотеката Клементинум:</strong> Барокова библиотека, изглеждаща като от приказка.</li>
+                <li><strong>Музеят на илюзиите:</strong> За забавни снимки, ако времето навън е лошо.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🛫 22 Юни (Понеделник) - Обратно към вкъщи</h2>
+            <div class="schedule-row">
+                <div class="time">06:30</div>
+                <div class="event"><strong>Ранно събуждане</strong> Бързо кафе и чек-аут.</div>
+            </div>
+            <div class="schedule-row">
+                <div class="time">07:00</div>
+                <div class="event"><strong>Тръгване към летището</strong> Трябва да сме там поне 2 часа преди полета в 09:00.</div>
+            </div>
+        </div>
+
+        <footer>
+            Приятно пътуване, Крис, Камен, Хриси и Сашо! 🇨🇿
+        </footer>
+    </div>
+
+</body>
+</html>
